@@ -24,7 +24,6 @@ def random_three():
         temp_list = []
         temp_list.append(names[i])
         temp_list.append(list_images[names[i]])
-        random_dict[i] = temp_list 
-    print(random_dict)
+        random_dict[i] = temp_list
 
     return random_dict

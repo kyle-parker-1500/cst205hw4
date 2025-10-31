@@ -11,7 +11,13 @@
   </head>
   <body>
     {{ bootstrap.load_js() }}
+    {% for item in info %}
+      {% for new_item in item %}
+        <h3>{{ new_item[0] }}</h3>
+        <img src="/static/images/{{ new_item[1] }}.jpg" alt="it's not working!!!">
+      {% endfor %}
+    {% endfor %}
 
   </body>
-</html>>
+</html>
 
