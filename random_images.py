@@ -19,9 +19,12 @@ def random_three():
     list_images = {i['title'] : i['id'] for i in info}
 
     # choose random 3 images
-    random_list = {}
+    random_dict = {}
     for i in range(3):
-        random_list[names[i]] = list_images[names[i]]
+        temp_list = []
+        temp_list.append(names[i])
+        temp_list.append(list_images[names[i]])
+        random_dict[i] = temp_list 
+    print(random_dict)
 
-    return random_list
-
+    return random_dict
