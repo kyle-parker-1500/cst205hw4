@@ -1,15 +1,12 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap5
-from pasta import one_pot_recipes
+from random_images import random_three
 
 app = Flask(__name__)
 bootstrap = Bootstrap5(app)
 
 @app.route('/')
 def home():
-  return render_template('home.html', pasta = one_pot_recipes)
-
-@app.route('/random')
-def random():
-    return render_template('home.html')
-    # return render_template('home.html', file_path = get_random())
+    # parse random_three dict into names & image ids
+    ids = [i for i in random_three().values]
+    return render_template('home.html', pasta = one_pot_recipes)
