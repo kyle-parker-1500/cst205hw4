@@ -10,12 +10,27 @@ bootstrap = Bootstrap5(app)
 def home():
     # parse random_three dict into names & image ids
     random_dict = random_three()
+    info = list(random_dict.items())
 
-    titles_and_images = [v for k, v in random_dict.items()]
-    return render_template('index.html', info = titles_and_images)
+    return render_template('index.html', info=info)
 
-@app.route('/detail/')
-def render_image_page():
-    return render_template('details.hmtl')
+@app.route('/detail/<id>')
+def detail(id):
+    image = random_three()
+
+    title = author = format = mode = ""
+    width = height = 0
+
+    for k, v in image.items():
+        print(k, v, flush = True)
+        if k == id:
+            title = v[0]
+            author = v[1]
+            width, height, format, mode = v[2]
+            print(title, author, width, height, format, mode, flush = True)
+            break
+
+    return render_template('detail.html', id=id, title=title, author=author, width=width, height=height, format=format, mode=mode)
+
 ## todo: images uniform size on home page
 ## todo: make each image interactable

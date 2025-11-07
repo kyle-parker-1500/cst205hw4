@@ -11,12 +11,13 @@
   </head>
   <body>
     {{ bootstrap.load_js() }}
-    {% for item in info %}
-        <div class="mb-5">
-          <h3>{{ item[0] }}</h3>
-          <img src="/static/images/{{ item[1] }}.jpg" alt="it's not working!!!" width="500" height="500" class="rounded img-fluid">
-          <p>Getting Info (Test!): Width: {{ item[2][0] }} Height: {{ item[2][1] }} Format: {{ item[2][2] }} Mode: {{ item[2][3] }}</p>
-        </div>
+    {% for key, value in info %}
+      <div class="mb-5">
+        <a href="{{ url_for('detail', id=key) }}" class="h1">{{ value[0] }}</a> <br>
+        <a href="{{ url_for('detail', id=key) }}">
+          <img src="/static/images/{{ key }}.jpg" alt="it's not working!!!" width="500" height="500" class="rounded img-fluid">
+        </a>
+      </div>
     {% endfor %}
   </body>
 </html>

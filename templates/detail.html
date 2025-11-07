@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Details</title>
+    <link href="css/style.css" rel="stylesheet">
+    {{ bootstrap.load_css() }}
+  </head>
+  <body>
+    {{ bootstrap.load_js() }}
+    <h1>{{ title }}</h1>
+    <img src="/static/images/{{ id }}.jpg" alt="it's not working!!!" class="rounded img-fluid">
+    <p>{{ mode }} image in {{ format }} format with width {{ width }} and height {{ height }}.</p>
+    <br>
+    <a href="{{ url_for('home') }}">Home</a>
+  </body>
+</html>
+
