@@ -25,12 +25,6 @@ def random_three():
     for i in range(3):
         temp_list = []
         temp_list.append(names[i])
-        
-        # make images (mostly uniform)
-        # pull ids -> access images -> resize -> add to temp_list
-        img = Image.open(os.path.join("static", "images", list_images[names[i]] + ".jpg"))
-        img.resize((500, 500))
-
         temp_list.append(list_images[names[i]])
         random_dict[i] = temp_list
 
