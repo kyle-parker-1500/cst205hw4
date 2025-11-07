@@ -12,8 +12,10 @@
   <body>
     {{ bootstrap.load_js() }}
     {% for item in info %}
-        <h3>{{ item[0] }}</h3>
-        <img src="/static/images/{{ item[1] }}.jpg" alt="it's not working!!!" class="rounded">
+        <div class="mb-5">
+          <h3>{{ item[0] }}</h3>
+          <img src="/static/images/{{ item[1] }}.jpg" alt="it's not working!!!" class="rounded img-fluid w-50 h-80">
+        </div>
     {% endfor %}
 
   </body>
