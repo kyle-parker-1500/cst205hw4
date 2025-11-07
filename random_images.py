@@ -28,7 +28,7 @@ def random_three():
     for i in range(3):
         temp_list = []
         temp_list.append(names[i])
-        temp_list.append(list_images[names[i]])
+        # temp_list.append(list_images[names[i]])
         
         # get other image information
         path = os.path.join("static", "images", list_images[names[i]] + ".jpg")
@@ -38,7 +38,7 @@ def random_three():
         temp_list.append(image_details(path))
 
         # adding current image info to dict
-        random_dict[i] = temp_list
+        random_dict[list_images[names[i]]] = temp_list
 
     return random_dict
 
@@ -53,5 +53,6 @@ def image_details(image_path):
     return (width, height, format, mode)
 
 random_list = random_three()
-only_list = [v for k, v in random_list.items()]
-print(only_list)
+
+for k, v in random_list.items():
+    print(k, v)
