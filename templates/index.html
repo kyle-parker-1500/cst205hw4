@@ -13,8 +13,10 @@
     {{ bootstrap.load_js() }}
     {% for item in info %}
         <div class="mb-5">
-          <h3>{{ item[0] }}</h3>
-          <img src="/static/images/{{ item[1] }}.jpg" alt="it's not working!!!" width="500" height="500" class="rounded img-fluid">
+          <a href="{{ url_for('detail', id=item[1]) }}" class="h1">{{ item[0] }}</a> <br>
+          <a href="{{ url_for('detail', id=item[1]) }}">
+            <img src="/static/images/{{ item[1] }}.jpg" alt="it's not working!!!" width="500" height="500" class="rounded img-fluid">
+          </a>
           <p>Name: {{ item[2] }}</p>
           <p>Width: {{ item[3][0] }}</p>
           <p>Height: {{ item[3][1] }}</p>

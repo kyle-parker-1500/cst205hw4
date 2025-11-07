@@ -3,14 +3,16 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ title }} by {{ author }}</title>
+    <title>{{ title }}</title>
     <link href="css/style.css" rel="stylesheet">
     {{ bootstrap.load_css() }}
   </head>
   <body>
     {{ bootstrap.load_js() }}
-    
-  
+    <img src="/static/images/{{ id }}.jpg" alt="it's not working!!!" class="rounded img-fluid">
+    <p>{{ mode }} image in {{ format }} format with width {{ width }} and height {{ height }}.</p>
+    <br>
+    <a href="{{ url_for('home') }}">Home</a>
   </body>
-</html>>
+</html>
 
