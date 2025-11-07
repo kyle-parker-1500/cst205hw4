@@ -51,8 +51,3 @@ def image_details(image_path):
     mode = img.mode
 
     return (width, height, format, mode)
-
-random_list = random_three()
-
-for k, v in random_list.items():
-    print(k, v)

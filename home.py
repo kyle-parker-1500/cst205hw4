@@ -21,11 +21,16 @@ def detail(id):
     title = author = format = mode = ""
     width = height = 0
 
-    
-    
+    for k, v in image.items():
+        print(k, v, flush = True)
+        if k == id:
+            title = v[0]
+            author = v[1]
+            width, height, format, mode = v[2]
+            print(title, author, width, height, format, mode, flush = True)
+            break
 
-    return render_template('detail.html', id=id, title=title, author=author, width=width,
-                           height=height, format=format, mode=mode)
+    return render_template('detail.html', id=id, title=title, author=author, width=width, height=height, format=format, mode=mode)
 
 ## todo: images uniform size on home page
 ## todo: make each image interactable
