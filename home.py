@@ -22,11 +22,13 @@ def detail(id):
     width = height = 0
 
     for k, v in image.items():
+        # delete
         print(k, v, flush = True)
         if k == id:
             title = v[0]
             author = v[1]
             width, height, format, mode = v[2]
+            # delete
             print(title, author, width, height, format, mode, flush = True)
             break
 
