@@ -10,4 +10,7 @@ def home():
     # parse random_three dict into names & image ids
     random_dict = random_three()
     titles_and_images = [v for k, v in random_dict.items()]
-    return render_template('home.html', info = titles_and_images)
+    return render_template('index.html', info = titles_and_images)
+
+## todo: images uniform size on home page
+## todo: make each image interactable
