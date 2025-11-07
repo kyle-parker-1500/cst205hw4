@@ -14,8 +14,5 @@ def home():
     titles_and_images = [v for k, v in random_dict.items()]
     return render_template('index.html', info = titles_and_images)
 
-@app.route('/detail/')
-def render_image_page():
-    return render_template('details.hmtl')
 ## todo: images uniform size on home page
 ## todo: make each image interactable

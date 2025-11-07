@@ -15,6 +15,9 @@ def random_three():
     ids = [i['id'] for i in info]
     # need image title -> pass
     names = [i['title'] for i in info]
+    # getting author names
+    author_names = [i['flickr_user'] for i in info]
+
     # shuffles names every time page is loaded
     random.shuffle(names)
     
@@ -31,6 +34,7 @@ def random_three():
         path = os.path.join("static", "images", list_images[names[i]] + ".jpg")
         
         # appending other info as a tuple (going to have to double index)
+        temp_list.append(author_names[i])
         temp_list.append(image_details(path))
 
         # adding current image info to dict
@@ -38,19 +42,12 @@ def random_three():
 
     return random_dict
 
+# gets image info such as width, height, format, and mode
+# returns a tuple containing all of this info
 def image_details(image_path):
-    # what i need:
-    # image title and author (done)
-    # image itself (done)
-    #   both covered by random_three
-    # image mode, format, width, and height
-    # a flask generated link back to the home page (should be written in home/main.py)
-
     img = Image.open(image_path)
     width, height = img.size
     format = img.format
     mode = img.mode
 
     return (width, height, format, mode)
-
-print(random_three())
