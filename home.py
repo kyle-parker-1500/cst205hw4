@@ -11,7 +11,8 @@ def home():
     # parse random_three dict into names & image ids
     random_dict = random_three()
     
-    # changing each image to have uniform size
+    # need to change each image to have uniform size
+    
     
     titles_and_images = [v for k, v in random_dict.items()]
     return render_template('index.html', info = titles_and_images)
