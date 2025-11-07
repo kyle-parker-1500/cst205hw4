@@ -26,6 +26,31 @@ def random_three():
         temp_list = []
         temp_list.append(names[i])
         temp_list.append(list_images[names[i]])
+        
+        # get other image information
+        path = os.path.join("static", "images", list_images[names[i]] + ".jpg")
+        
+        # appending other info as a tuple (going to have to double index)
+        temp_list.append(image_details(path))
+
+        # adding current image info to dict
         random_dict[i] = temp_list
 
     return random_dict
+
+def image_details(image_path):
+    # what i need:
+    # image title and author (done)
+    # image itself (done)
+    #   both covered by random_three
+    # image mode, format, width, and height
+    # a flask generated link back to the home page (should be written in home/main.py)
+
+    img = Image.open(image_path)
+    width, height = img.size
+    format = img.format
+    mode = img.mode
+
+    return (width, height, format, mode)
+
+print(random_three())
