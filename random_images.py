@@ -11,34 +11,19 @@ import os
 
 # returns dict of 3 selected random images & their titles
 def random_three():
-    # need image id -> pass
-    ids = [i['id'] for i in info]
-    # need image title -> pass
-    names = [i['title'] for i in info]
-    # getting author names
-    author_names = [i['flickr_user'] for i in info]
+    data = info[:]
+    random.shuffle(data)
 
-    # shuffles names every time page is loaded
-    random.shuffle(names)
-    
-    list_images = {i['title'] : i['id'] for i in info}
-
-    # choose random 3 images
     random_dict = {}
-    for i in range(3):
-        temp_list = []
-        temp_list.append(names[i])
-        # temp_list.append(list_images[names[i]])
-        
-        # get other image information
-        path = os.path.join("static", "images", list_images[names[i]] + ".jpg")
-        
-        # appending other info as a tuple (going to have to double index)
-        temp_list.append(author_names[i])
-        temp_list.append(image_details(path))
+    for item in data[:3]:
+        path = os.path.join("static", "images", item['id'] + ".jpg")
+        width, height, format, mode = image_details(path)
 
-        # adding current image info to dict
-        random_dict[list_images[names[i]]] = temp_list
+        random_dict[item['id']] = [
+            item['title'],
+            item['flickr_user'],
+            (width, height, format, mode)
+        ]
 
     return random_dict
 
