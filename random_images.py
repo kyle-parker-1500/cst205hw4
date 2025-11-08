@@ -3,22 +3,20 @@ from image_info import image_info as info
 from PIL import Image
 import os
 
-# get info from dict
-# parse into objects/vars
-# choose 3 random using random.shuffle(my_images) -> where my_images is a list of all image id's
-# <img src="/static/images/{{ ... }}.jpg" class="w-50" /> -> keep in mind that this is how the html tag should look to get an img
-# Note the .jpg on the outside of the path -> so we're only passing the image id
-
 # returns dict of 3 selected random images & their titles
 def random_three():
+    # copys dict & shuffles data
     data = info[:]
     random.shuffle(data)
 
+    # generates dict to get 3 images and their information
     random_dict = {}
     for item in data[:3]:
+        # genrates id locally for image_details method to function
         path = os.path.join("static", "images", item['id'] + ".jpg")
         width, height, format, mode = image_details(path)
 
+        # creates random dict with 'id' as the key
         random_dict[item['id']] = [
             item['title'],
             item['flickr_user'],
